@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using c = Lybrary.Controllers;
 
 namespace Lybrary
 {
@@ -11,7 +12,9 @@ namespace Lybrary
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            c.Book BookController = new c.Book();
+            repBooks.DataSource = BookController.GetBooks();
+            repBooks.DataBind(); 
         }
     }
 }

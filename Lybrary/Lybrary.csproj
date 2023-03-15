@@ -67,29 +67,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css and images\images\71IR+6fRznL.jpg" />
-    <Content Include="css and images\images\descargar-removebg-preview.png" />
-    <Content Include="css and images\images\HP1_portada_espa3Fol_de_bolsillo_2020.jpg" />
-    <Content Include="css and images\Principal.css" />
-    <Content Include="css and images\Chekout.css" />
+    <Content Include="Images\71IR+6fRznL.jpg" />
+    <Content Include="Images\descargar-removebg-preview.png" />
+    <Content Include="Images\HPyLPiedra.jpg" />
+    <Content Include="Css\Principal.css" />
+    <Content Include="Css\Chekout.css" />
     <Content Include="Web.config" />
-    <Content Include="Principal.aspx" />
-    <Content Include="Cheakout.aspx" />
+    <Content Include="Views\Principal.aspx" />
+    <Content Include="Views\Cheakout.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Book.cs" />
+    <Compile Include="DataBaseWebHelper\DataBase.cs" />
+    <Compile Include="Models\Book.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Principal.aspx.cs">
+    <Compile Include="Views\Principal.aspx.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Principal.aspx.designer.cs">
+    <Compile Include="Views\Principal.aspx.designer.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cheakout.aspx.cs">
+    <Compile Include="Views\Cheakout.aspx.cs">
       <DependentUpon>Cheakout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cheakout.aspx.designer.cs">
+    <Compile Include="Views\Cheakout.aspx.designer.cs">
       <DependentUpon>Cheakout.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -102,6 +105,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
