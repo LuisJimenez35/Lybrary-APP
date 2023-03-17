@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="~/Views/Cheakout.aspx.cs" Inherits="Lybrary.WebForm2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegisterPage.aspx.cs" Inherits="Lybrary.Views.WebForm4" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../Css/Chekout.css">
 </head>
 <body>
+    
     <div class="container">
         <div class="logo">
             <a href="mu.html">
@@ -19,7 +20,7 @@
             </a>
             <nav>
                 <ul>
-                    <li><a href="Principal.aspx">Inicio <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                    <li><a href="Mainpage.aspx">Inicio <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
   <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
   <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
 </svg></a></li>
@@ -29,67 +30,42 @@
     </div>
 
     <section class="libreria">
-        <h2>Checkout</h2>
-        <div class="libros">
-            <div class="libro">
-                <img src="https://via.placeholder.com/150" alt="Portada libro 1">
-                <h3>Titulo libro 1</h3>
-                <p>Precio: </p>
-            </div>
-            <div class="libro">
-                <img src="https://via.placeholder.com/150" alt="Portada libro 2">
-                <h3>Titulo libro 2</h3>
-                <p>Precio:</p>
-            </div>
-        </div>
+        <h2>Registrarse</h2>
+        
         <hr>
         <div class="selectinput">
-            <form class="row g-3">
+            <form class="row g-3" id="Form1" runat="server">
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="Name">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Apellidos</label>
+                    <input type="text" class="form-control" id="LastName">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Fecha de nacimiento</label>
+                    <input type="date" class="form-control" id="date">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Identificacion</label>
+                    <input type="number" class="form-control" id="dni">
                 </div>
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Email</label>
                     <input type="email" class="form-control" id="Email">
                 </div>
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Pais</label>
-                    <input type="text" class="form-control" id="Pais">
+                    <label for="inputEmail4" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="Pass">
                 </div>
-                <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">Estado(Provincia)</label>
-                    <input type="password" class="form-control" id="inputPassword4">
-                </div>
-                <div class="col-12">
-                    <label for="inputAddress" class="form-label">Direccion</label>
-                    <input type="text" class="form-control" id="Direccion">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Codigo Postal</label>
-                    <input type="number" class="form-control" id="Codepostal">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">Numero de Tarjeta</label>
-                    <input type="number" class="form-control" id="numcard">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Fecha expiracion</label>
-                    <input type="date" class="form-control" id="fech">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">CVV</label>
-                    <input type="number" class="form-control" id="CVV">
-                </div>
-            </form>
-        </div>
-        <br>
-        <h5>Impuestos : $10</h5>
-        <h5>
-            Total: $ 450</h4>
-            <hr>
-            <button>Pagar</button>
-    </section>
+                
+                <br>      
+             <button>Registrarse</button>
+            
+        </form>
+    </div>
+        </section>
     <br>
     <footer>
         <div class="container">

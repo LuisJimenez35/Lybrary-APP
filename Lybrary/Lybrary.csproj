@@ -67,13 +67,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Css\Admin.css" />
+    <Content Include="Css\StyleSheet1.css" />
+    <Content Include="Css\Register.css" />
     <Content Include="Images\71IR+6fRznL.jpg" />
     <Content Include="Images\descargar-removebg-preview.png" />
     <Content Include="Images\HPyLPiedra.jpg" />
     <Content Include="Css\Principal.css" />
     <Content Include="Css\Chekout.css" />
+    <Content Include="Views\Admin.aspx" />
+    <Content Include="Views\UsersViewPage.aspx" />
+    <Content Include="Views\RegisterPage.aspx" />
+    <Content Include="Views\Mainpage.aspx" />
     <Content Include="Web.config" />
-    <Content Include="Views\Principal.aspx" />
     <Content Include="Views\Cheakout.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -81,19 +87,40 @@
     <Compile Include="DataBaseWebHelper\DataBase.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Principal.aspx.cs">
-      <DependentUpon>Principal.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Principal.aspx.designer.cs">
-      <DependentUpon>Principal.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\Cheakout.aspx.cs">
       <DependentUpon>Cheakout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Cheakout.aspx.designer.cs">
       <DependentUpon>Cheakout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsersViewPage.aspx.cs">
+      <DependentUpon>UsersViewPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UsersViewPage.aspx.designer.cs">
+      <DependentUpon>UsersViewPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegisterPage.aspx.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\RegisterPage.aspx.designer.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Mainpage.aspx.cs">
+      <DependentUpon>Mainpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Mainpage.aspx.designer.cs">
+      <DependentUpon>Mainpage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

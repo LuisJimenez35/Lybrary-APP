@@ -108,6 +108,7 @@ header {
     text-align: center;
     display: flex;
     margin: 0 auto;
+    align-content: center;
     justify-content: center;
     width: 90%;
     left: 2%;
