@@ -44,6 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -75,6 +78,7 @@
     <Content Include="Images\HPyLPiedra.jpg" />
     <Content Include="Css\Principal.css" />
     <Content Include="Css\Chekout.css" />
+    <Content Include="JS\Site.js" />
     <Content Include="Views\Admin.aspx" />
     <Content Include="Views\UsersViewPage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
@@ -84,8 +88,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Book.cs" />
+    <Compile Include="Controllers\Login.cs" />
     <Compile Include="DataBaseWebHelper\DataBase.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\UserAthentication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Cheakout.aspx.cs">
       <DependentUpon>Cheakout.aspx</DependentUpon>
