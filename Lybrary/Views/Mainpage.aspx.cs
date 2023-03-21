@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using static Lybrary.Models.UserAthentication;
+using m = Lybrary.Models;
 using c = Lybrary.Controllers;
 
 namespace Lybrary.Views
@@ -16,6 +17,7 @@ namespace Lybrary.Views
         {
             if (!IsPostBack)
             {
+                IsLogOut();
                 string session = Request.QueryString["session"];
 
                 if (session == "false")
@@ -45,7 +47,7 @@ namespace Lybrary.Views
             {
                 Session["loginInfo"] = loginInfo;
                 msg = "Welcome " + txtEmail.Value;
-                
+                IsLogged();
             }
             else
             {
@@ -54,6 +56,39 @@ namespace Lybrary.Views
 
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showModal('Login','" + msg + "')", true);
         }
-        
+        private void IsLogged()
+        {
+            if (Session["loginInfo"] != null)
+            {
+                LoginResponsePayload session = (LoginResponsePayload)Session["loginInfo"];
+
+                //lblName.InnerText = session.email;
+                RegisterPage.Attributes.Add("hidden", "hidden");
+                LoginModal.Attributes.Add("hidden","hidden");
+                LogOut.Attributes.Remove("hidden");
+                ShoppingCar.Attributes.Remove("hidden");
+                LoveBooks.Attributes.Remove("hidden");
+            }
+        }
+
+        private void IsLogOut()
+        {
+            if (Session["loginInfo"] == null)
+            {
+                RegisterPage.Attributes.Remove("hidden");
+                LoginModal.Attributes.Remove("hidden");
+                LogOut.Attributes.Add("hidden", "hidden");
+                ShoppingCar.Attributes.Add("hidden", "hidden");
+                LoveBooks.Attributes.Add("hidden", "hidden");
+            }
+        }
+
+        protected void Logout_ServerClick(object sender, EventArgs e)
+        {
+            Session.Clear();
+            IsLogOut();
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showModal('Login','Thank you for visiting International Libery.com')", true);
+        }
+
     }
 }
