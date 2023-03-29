@@ -19,10 +19,11 @@
             </a>
             <nav>
                 <ul>
-                    <li><a href="Principal.aspx">Inicio <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
-  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
-  <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
-</svg></a></li>
+                    <li><a href="Mainpage.aspx">Inicio
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
+                            <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
+                        </svg></a></li>
                 </ul>
             </nav>
         </div>
@@ -30,18 +31,19 @@
 
     <section class="libreria">
         <h2>Checkout</h2>
-        <div class="libros">
-            <div class="libro">
-                <img src="https://via.placeholder.com/150" alt="Portada libro 1">
-                <h3>Titulo libro 1</h3>
-                <p>Precio: </p>
-            </div>
-            <div class="libro">
-                <img src="https://via.placeholder.com/150" alt="Portada libro 2">
-                <h3>Titulo libro 2</h3>
-                <p>Precio:</p>
-            </div>
-        </div>
+        <asp:Repeater runat="server" ID="repMyShoppingCart">
+            <HeaderTemplate>
+            </HeaderTemplate>
+            <ItemTemplate>
+                <div class="libro">
+                    <img src="<%# Eval("Photo")%>" alt="Portada libro 1">
+                    <h3>Titulo: <%# Eval("Photo")%></h3>
+                    <p>Precio: <%# Eval("Photo")%></p>
+                </div>
+            </ItemTemplate>
+            <FooterTemplate>
+            </FooterTemplate>
+        </asp:Repeater>
         <hr>
         <div class="selectinput">
             <form class="row g-3">
@@ -85,10 +87,9 @@
         </div>
         <br>
         <h5>Impuestos : $10</h5>
-        <h5>
-            Total: $ 450</h4>
-            <hr>
-            <button>Pagar</button>
+        <h4>Total: $ 450</h4>
+        <hr>
+        <button>Pagar</button>
     </section>
     <br>
     <footer>

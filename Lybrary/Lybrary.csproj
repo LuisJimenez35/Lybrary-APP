@@ -87,10 +87,13 @@
     <Content Include="Views\Cheakout.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\Book.cs" />
+    <Compile Include="Controllers\Book.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Controllers\Login.cs" />
     <Compile Include="DataBaseWebHelper\DataBase.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\UserAthentication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Cheakout.aspx.cs">
@@ -138,7 +141,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DataBaseWebHelper\Store Procedures\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

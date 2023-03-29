@@ -7,6 +7,7 @@ namespace Lybrary.Models
 {
     public class UserAthentication
     {
+        //User Authentication variables
         public class LoginResponsePayload
         {
             public string idToken { get; set; }

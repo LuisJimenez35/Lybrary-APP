@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using static Lybrary.Models.UserAthentication;
-using Lybrary.Controllers;
 
 namespace Lybrary.Models
-
 {
-    //Book Variables
-    public class Book
+    public class Cart
     {
         public string ISBN { get; set; }
         public LoginResponsePayload session { get; set; }
