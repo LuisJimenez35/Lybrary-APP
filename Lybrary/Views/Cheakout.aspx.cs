@@ -26,8 +26,8 @@ namespace Lybrary
 
                 c.Book bookController = new c.Book();
 
-                repMyShoppingCart.DataSource = bookController.GetMyShoppingCart(session);
-                repMyShoppingCart.DataBind();
+                //repMyShoppingCart.DataSource = bookController.GetMyShoppingCart(session);
+                //repMyShoppingCart.DataBind();
             }
         }
     }
