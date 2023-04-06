@@ -45,6 +45,7 @@ namespace Lybrary.Controllers
                     Title = row["Title"].ToString(),
                     Author = row["Author"].ToString(),
                     ReleaseDate = row["ReleaseDate"].ToString(),
+                    Description = row["Description"].ToString(),
                     Price = Convert.ToInt16(row["Price"])
                 });
             }
