@@ -73,7 +73,6 @@
                         <hr><hr>
                         <h3 id="h3Author">Author:<%# Eval("Author")%></h3>
                         <p id="pPrice">Price:$<%# Eval("Price")%> </p>
-                        <button>Buy</button>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_<%# Eval("ISBN")%>" data-isbn='<%# Eval("ISBN")%>'>Information</button>
                       </div>
                     </div>
@@ -95,13 +94,11 @@
                             <hr>
                             <h4 class="card-title">Author: <%# Eval("Author")%></h4>
                             <hr>
-                            <h4 class="card-title">Description<br><br> <%# Eval("Description")%></h4>
+                            <h4 class="card-title-1">Description<br><br> <%# Eval("Description")%></h4>
                             <hr>
                             <h4 class="card-title">Relase Date: <%# Eval("ReleaseDate")%></h4>
                             <hr>
-                            <h4 class="card-title">ISBN: <%# Eval("ISBN")%></h4>
-                            <hr>
-                            <button type="button" class="btn btn-success">Add Favorite</button>
+                            <button type="button" class="btn btn-success">Add Shoping-Car</button>
                           </div>
                         </div>
                       </div>

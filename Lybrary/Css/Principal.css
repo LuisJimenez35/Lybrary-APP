@@ -473,6 +473,9 @@ footer {
     display: flex;
     flex-wrap: wrap;
 }
+.card-title-1{
+    text-align: initial;
+}
 
 .libro {
     width: 250px;
@@ -485,8 +488,8 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items : center;
-    text-align : center
+    align-items: center;
+    text-align: center
 }
 
     .libro img {
