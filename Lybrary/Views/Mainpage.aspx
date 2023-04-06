@@ -58,24 +58,26 @@
             <button type="submit"><i class="fa fa-search"></i>Buscar</button>
 
         </div>
-        <asp:Repeater ID="repBooks" runat="server">
+        <h2>Libros Disponibles</h2>
+        <asp:Repeater ID="repBooks" runat="server" ClientIDMode="Static">
             <HeaderTemplate>
             </HeaderTemplate>
             <ItemTemplate>
-                <h2>Libreríos Disponibles</h2>
                 <div class="libros">
                     <div class="libro">
-                        <img src="<%# Eval("Photo")%>" alt="Portada libro 1">
+                        <img src="<%# Eval("Photo")%>" alt="Portada <%# Eval("ISBN")%>">
                         <h3 id="h3Title">Title:<%# Eval("Title")%></h3>
                         <h3 id="h3Author">Author:<%# Eval("Author")%></h3>
                         <p id="pPrice">Price:$<%# Eval("Price")%> </p>
                         <button>Buy</button>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" dataISBN='<%# Eval("ISBN")%>'>Information</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_<%# Eval("ISBN")%>" data-isbn='<%# Eval("ISBN")%>'>Information</button>
+
+
                     </div>
                 </div>
                 
                 <!-- Modal de informacion libros-->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal_<%# Eval("ISBN")%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -104,6 +106,7 @@
             <FooterTemplate>
             </FooterTemplate>
         </asp:Repeater>
+
         <div class="login-modal">
             <div class="login-modal-content">
                 <span class="close">&times;</span>
