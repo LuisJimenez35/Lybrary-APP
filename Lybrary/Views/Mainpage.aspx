@@ -58,54 +58,64 @@
             <button type="submit"><i class="fa fa-search"></i>Buscar</button>
 
         </div>
-        <h2>Libros Disponibles</h2>
-        <asp:Repeater ID="repBooks" runat="server" ClientIDMode="Static">
-            <HeaderTemplate>
-            </HeaderTemplate>
-            <ItemTemplate>
-                <div class="libros">
-                    <div class="libro">
+        <div  class="tilemain">
+            <h2>Libros Disponibles</h2>
+        </div>
+        <div class="mainbooks">
+            <asp:Repeater ID="repBooks" runat="server" ClientIDMode="Static">
+                <HeaderTemplate>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <div class="libros">
+                      <div class="libro">
                         <img src="<%# Eval("Photo")%>" alt="Portada <%# Eval("ISBN")%>">
-                        <h3 id="h3Title">Title:<%# Eval("Title")%></h3>
+                        <h3 id="h3Title"><%# Eval("Title")%></h3>
+                        <hr><hr>
                         <h3 id="h3Author">Author:<%# Eval("Author")%></h3>
                         <p id="pPrice">Price:$<%# Eval("Price")%> </p>
                         <button>Buy</button>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_<%# Eval("ISBN")%>" data-isbn='<%# Eval("ISBN")%>'>Information</button>
-
-
+                      </div>
                     </div>
-                </div>
+            
+
                 
                 <!-- Modal de informacion libros-->
                 <div class="modal fade" id="exampleModal_<%# Eval("ISBN")%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Descripcion de <%# Eval("Title")%> </h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Descripcion de "<%# Eval("Title")%>" </h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <h4>Title: <%# Eval("Title")%></h4>
-                          <hr>
-                        <h4>Author: <%# Eval("Author")%></h4>
-                          <hr>
-                        <h4>Description: <%# Eval("Description")%></h4>
-                          <hr>
-                        <h4>Relase Date: <%# Eval("ReleaseDate")%></h4>
-                          <hr>
-                        <h4>ISBN: <%# Eval("ISBN")%></h4>
-                          <hr>
-                          <button type="button" class="btn btn-success">Add Favorite</button>
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title"><%# Eval("Title")%></h4>
+                            <hr>
+                            <h4 class="card-title">Author: <%# Eval("Author")%></h4>
+                            <hr>
+                            <h4 class="card-title">Description<br><br> <%# Eval("Description")%></h4>
+                            <hr>
+                            <h4 class="card-title">Relase Date: <%# Eval("ReleaseDate")%></h4>
+                            <hr>
+                            <h4 class="card-title">ISBN: <%# Eval("ISBN")%></h4>
+                            <hr>
+                            <button type="button" class="btn btn-success">Add Favorite</button>
+                          </div>
+                        </div>
                       </div>
                       <div class="modal-footer">
                       </div>
                     </div>
                   </div>
                 </div>
-            </ItemTemplate>
-            <FooterTemplate>
-            </FooterTemplate>
-        </asp:Repeater>
+
+                </ItemTemplate>
+                <FooterTemplate>
+                </FooterTemplate>
+            </asp:Repeater>
+            </div>
 
         <div class="login-modal">
             <div class="login-modal-content">
