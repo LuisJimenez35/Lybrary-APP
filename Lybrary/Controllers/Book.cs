@@ -22,15 +22,6 @@ namespace Lybrary.Controllers
             return ConvertDSToList(ds);
         }
 
-        /*public List<m.Book> GetBook(string ISBN)
-        {
-            DataBaseWebHelper.DataBase db = new DataBaseWebHelper.DataBase();
-
-            DataTable ds = db.GetBook(ISBN);
-
-            return ConvertDSToList(ds);
-        }*/
-
         //Method convert items to a list an add them, then, this show it in MainPage.aspx
         public List<m.Book> ConvertDSToList(DataTable ds)
         {
@@ -44,53 +35,13 @@ namespace Lybrary.Controllers
                     Photo = row["Photo"].ToString(),
                     Title = row["Title"].ToString(),
                     Author = row["Author"].ToString(),
-                    ReleaseDate = row["ReleaseDate"].ToString(),
+                    ReleaseDate = DateTime.Parse((string)row["ReleaseDate"]),
                     Description = row["Description"].ToString(),
                     Price = Convert.ToInt16(row["Price"])
                 });
             }
             return booksList;
         }
-
-        //Method calls an other method in DataBaseWebHelper and save the purchase
-        /*public bool SaveToShoppingCart(m.Book book)
-        {
-            try
-            {
-                DataBaseWebHelper.DataBase db = new DataBaseWebHelper.DataBase();
-
-                db.saveToShoppinCart(book);
-
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }*/
-        
-        //Method to get the client's shopping cart
-        /*public List<m.Book> GetMyShoppingCart(LoginResponsePayload session)
-        {
-            List<m.Book> bookList = new List<m.Book>();
-            DataBaseWebHelper.DataBase db = new DataBaseWebHelper.DataBase();
-
-            DataTable ds = db.GetMyShoppingCart(session.email);
-
-            foreach (DataRow row in ds.Rows)
-            {
-                bookList.Add(new m.Book
-                {
-                    ISBN = row["BookISBN"].ToString(),
-                    Photo = row["Photo"].ToString(),
-                    Title = row["Title"].ToString(),
-                    Author = row["Author"].ToString(),
-                    ReleaseDate = row["ReleaseDate"].ToString(),
-                    Price = Convert.ToInt16(row["Price"]),
-                });
-            }
-            return bookList;
-        }*/
     }
 
 }

@@ -90,6 +90,7 @@
     <Compile Include="Controllers\Book.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Controllers\Cart.cs" />
     <Compile Include="Controllers\Login.cs" />
     <Compile Include="DataBaseWebHelper\DataBase.cs" />
     <Compile Include="Models\Book.cs" />

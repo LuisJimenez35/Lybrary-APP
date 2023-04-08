@@ -37,8 +37,8 @@
             <ItemTemplate>
                 <div class="libro">
                     <img src="<%# Eval("Photo")%>" alt="Portada libro 1">
-                    <h3>Titulo: <%# Eval("Photo")%></h3>
-                    <p>Precio: <%# Eval("Photo")%></p>
+                    <h3>Titulo: <%# Eval("Title")%></h3>
+                    <p>Precio: <%# Eval("price")%></p>
                 </div>
             </ItemTemplate>
             <FooterTemplate>
@@ -86,8 +86,8 @@
             </form>
         </div>
         <br>
-        <h5>Impuestos : $10</h5>
-        <h4>Total: $ 450</h4>
+        <label>IVA: $</label>
+        <label id="lblTotal" runat="server">$</label>
         <hr>
         <button>Pagar</button>
     </section>

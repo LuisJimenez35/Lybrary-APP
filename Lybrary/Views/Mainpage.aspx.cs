@@ -9,6 +9,7 @@ using static Lybrary.Models.UserAthentication;
 using m = Lybrary.Models;
 using c = Lybrary.Controllers;
 using System.Web.UI.HtmlControls;
+using System.Runtime.Remoting.Messaging;
 
 namespace Lybrary.Views
 {
@@ -90,20 +91,12 @@ namespace Lybrary.Views
             }
         }
 
+        //Method find an a specific book
         private void findBook(string ISBN)
-        {   
-
-            //c.Book BookController = new c.Book();
-            //List<m.Book> books = BookController.GetBook(ISBN);
-            //Session["books"] = books;
-            //repBooks.DataSource = books;
-
-
-        }
-
-        private void chargeSesion()
         {
-           
+            c.Cart CartController = new c.Cart();
+            List<m.Book> books = CartController.GetBook(ISBN);
+            Session["Cart"] = books;
         }
 
         //Method to log out account
@@ -123,15 +116,24 @@ namespace Lybrary.Views
         //Method to save books in a shopping cart
         protected void btnSave_ServerClick(object sender, EventArgs e)
         {
-            //var button = (HtmlButton)sender;
-            //var ISBN = "";
-            //c.Book BookController = new c.Book();
-           //List<m.Book> books = BookController.GetBook(ISBN);
-            //Session["books"] = books;
-            //repBooks.DataSource = books;
-            //m.Book book = (m.Book)Session["books"];
-            //c.Book controllerbooks = new c.Book();
-           //controllerbooks.SaveToShoppingCart(List<m.Book>books);
+            var button = (HtmlButton)sender;
+            var ISBN = button.Attributes["dataId"];
+            findBook(ISBN);
+            
+            List<m.Book> book = (List<m.Book>)Session["Cart"];
+            c.Cart CartController = new c.Cart();
+            m.Cart Cart = new m.Cart()
+            {
+                ISBN = book[0].ISBN,
+                Photo = book[0].Photo,
+                Author = book[0].Author,
+                Title = book[0].Title,
+                Description = book[0].Description,
+                ReleaseDate = book[0].ReleaseDate,
+                session = (LoginResponsePayload)Session["loginInfo"],
+                Price = book[0].Price
+            };
+            CartController.SaveToShoppingCart(Cart);
 
         }
 

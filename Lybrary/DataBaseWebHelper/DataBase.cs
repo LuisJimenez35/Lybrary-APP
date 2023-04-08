@@ -22,7 +22,7 @@ namespace Lybrary.DataBaseWebHelper
         }
 
         //Method to take up an specific book base in ISBN
-        /*public DataTable GetBook(string ISBN)
+        public DataTable GetBook(string ISBN)
         {
             List<SqlParameter> param = new List<SqlParameter>()
             {
@@ -30,11 +30,11 @@ namespace Lybrary.DataBaseWebHelper
             };
 
             return this.Fill("[dbo].[spGetBook]", param);
-        }*/
+        }
 
         //Method to save your item in a shopping cart
-       // public void saveToShoppinCart(m.Book book)
-        /*{
+       public void saveToShoppinCart(m.Cart book)
+        {
             List<SqlParameter> param = new List<SqlParameter>()
             {
                 new SqlParameter("@BookISBN", book.ISBN),
@@ -46,7 +46,7 @@ namespace Lybrary.DataBaseWebHelper
                 new SqlParameter("BuyerEmail", book.session.email)
             };
             this.ExecuteQuery("[dbo].[spSaveToShoppingCart]", param);
-        }*/
+        }
 
         //Method to find or consult any book
         public DataTable Fill(string storedProcedure, List<SqlParameter> param)
@@ -110,7 +110,7 @@ namespace Lybrary.DataBaseWebHelper
         }
 
         //Method to execute an stored procedure to get the client's shopping cart
-        /*public DataTable GetMyShoppingCart(string email)
+        public DataTable GetMyShoppingCart(string email)
         {
             List<SqlParameter> param = new List<SqlParameter>()
             {
@@ -118,6 +118,6 @@ namespace Lybrary.DataBaseWebHelper
             };
 
             return this.Fill("[dbo].[spGetMyShoppingCart]", param);
-        }*/
+        }
     }
 }

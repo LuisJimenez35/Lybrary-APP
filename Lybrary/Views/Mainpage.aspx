@@ -98,7 +98,7 @@
                             <hr>
                             <h4 class="card-title">Relase Date: <%# Eval("ReleaseDate")%></h4>
                             <hr>
-                            <button type="button" class="btn btn-success">Add Shoping-Car</button>
+                            <button type="button" runat="server" onserverclick="btnSave_ServerClick" class="btn btn-success" dataId='<%# Eval("ISBN")%>'>Add Shoping-Car</button>
                           </div>
                         </div>
                       </div>

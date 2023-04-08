@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using m = Lybrary.Models.UserAthentication;
+using static Lybrary.Models.UserAthentication;
+using m = Lybrary.Models;
 using c = Lybrary.Controllers;
-
+using System.Security.Cryptography.X509Certificates;
+using System.EnterpriseServices;
 
 namespace Lybrary
 {
@@ -22,13 +24,26 @@ namespace Lybrary
                     Response.Redirect("Booking.aspx?session=false");
                 }
 
-                m.LoginResponsePayload session = (m.LoginResponsePayload)Session["loginInfo"];
+                LoginResponsePayload session = (LoginResponsePayload)Session["loginInfo"];
 
-                c.Book bookController = new c.Book();
+                c.Cart bookController = new c.Cart();
+                calculateCost();
 
-                //repMyShoppingCart.DataSource = bookController.GetMyShoppingCart(session);
-                //repMyShoppingCart.DataBind();
-            }
+
+                repMyShoppingCart.DataSource = bookController.GetMyShoppingCart(session);
+                repMyShoppingCart.DataBind();
+
+                
+            } 
+        }
+
+        //It should calculete cost but need a fix
+        private void calculateCost() 
+        { 
+            m.Cart cart = new m.Cart();
+            decimal total = cart.getcost();
+
+            lblTotal.InnerText = total.ToString();
         }
     }
 }
