@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Mainpage.aspx.cs" Inherits="Lybrary.Views.WebForm3" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Mainpage.aspx" Inherits="Lybrary.Views.WebForm3" %>
 
 <!DOCTYPE html>
 <html lang="en">
