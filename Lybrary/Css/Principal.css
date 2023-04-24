@@ -288,6 +288,7 @@ nav .Section_btn_Shop {
     gap: 2rem;
     margin-bottom: 2rem;
     align-items: center;
+    margin: 0 auto
   }
   
   
@@ -547,4 +548,17 @@ footer {
 .libreria .libro img {
     margin-bottom: 1rem;
     max-width: 100%; 
+}
+
+
+.libros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    margin: 0 auto;
+    margin-left: 10%
+    
 }
