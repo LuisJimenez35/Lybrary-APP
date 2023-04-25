@@ -28,17 +28,20 @@
             </nav>
         </div>
     </div>
-
     <section class="libreria">
         <h2>Checkout</h2>
         <asp:Repeater runat="server" ID="repMyShoppingCart">
             <HeaderTemplate>
             </HeaderTemplate>
             <ItemTemplate>
+                
                 <div class="libro">
                     <img src="<%# Eval("Photo")%>" alt="Portada libro 1">
                     <h3>Titulo: <%# Eval("Title")%></h3>
-                    <p>Precio: <%# Eval("price")%></p>
+                    <p>Precio: <asp:Label runat="server" ID="lblPrice" Text='<%# Eval("price")%>'></asp:Label></p>
+                    <br>
+                    <button type="button" class="btn btn-outline-danger">Eliminar</button>
+                    <br>
                 </div>
             </ItemTemplate>
             <FooterTemplate>
@@ -61,7 +64,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Estado(Provincia)</label>
-                    <input type="password" class="form-control" id="inputPassword4">
+                    <input type="text" class="form-control" id="inputPassword4">
                 </div>
                 <div class="col-12">
                     <label for="inputAddress" class="form-label">Direccion</label>
@@ -86,8 +89,8 @@
             </form>
         </div>
         <br>
-        <label>IVA: </label>
-        <label id="lblTotal" runat="server">$</label>
+        <label runat="server">IVA: $ </label>
+        <label id="lblTotal" runat="server"></label>
         <hr>
         <button>Pagar</button>
     </section>

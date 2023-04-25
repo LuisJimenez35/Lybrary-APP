@@ -26,34 +26,28 @@ namespace Lybrary
 
                 LoginResponsePayload session = (LoginResponsePayload)Session["loginInfo"];
 
-                c.Cart bookController = new c.Cart();
-                calculateCost();
-
-
+                c.Cart bookController = new c.Cart();             
                 repMyShoppingCart.DataSource = bookController.GetMyShoppingCart(session);
                 repMyShoppingCart.DataBind();
 
-                
-            } 
+                calculateCost();
+            }
         }
+
 
         //It should calculete cost but need a fix
         private void calculateCost()
         {
-            m.Cart cart = new m.Cart();
-            decimal total = cart.getcost();
-
-            // Iterate through each item in the Repeater control
+            decimal total = 0;
             foreach (RepeaterItem item in repMyShoppingCart.Items)
             {
                 Label lblPrice = (Label)item.FindControl("lblPrice");
-                decimal price = decimal.Parse(lblPrice.Text.Replace("$", ""));
+                decimal price = decimal.Parse(lblPrice.Text);
                 total += price;
             }
 
-            // Update the lblTotal control with the total cost
-            Label lblTotal = (Label)FindControl("lblTotal");
-            lblTotal.Text = total.ToString();
+            // Muestra el total en la etiqueta lblTotal
+            lblTotal.Text = total.ToString("N2");
         }
 
     }
