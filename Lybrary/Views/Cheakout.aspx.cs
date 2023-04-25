@@ -38,12 +38,23 @@ namespace Lybrary
         }
 
         //It should calculete cost but need a fix
-        private void calculateCost() 
-        { 
+        private void calculateCost()
+        {
             m.Cart cart = new m.Cart();
             decimal total = cart.getcost();
 
-            lblTotal.InnerText = total.ToString();
+            // Iterate through each item in the Repeater control
+            foreach (RepeaterItem item in repMyShoppingCart.Items)
+            {
+                Label lblPrice = (Label)item.FindControl("lblPrice");
+                decimal price = decimal.Parse(lblPrice.Text.Replace("$", ""));
+                total += price;
+            }
+
+            // Update the lblTotal control with the total cost
+            Label lblTotal = (Label)FindControl("lblTotal");
+            lblTotal.Text = total.ToString();
         }
+
     }
 }

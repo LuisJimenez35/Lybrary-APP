@@ -54,8 +54,8 @@
         </div>
 
         <div class="search-container">
-            <input type="text" placeholder="Titulo o ISBN: ">
-            <button type="submit"><i class="fa fa-search"></i>Buscar</button>
+            <input type="text" id="searchInput" placeholder="Titulo o ISBN: ">
+            <button type="button" id="searchButton" <i class="fa fa-search"></i>Buscar</button>
 
         </div>
         <div  class="tilemain">
@@ -178,6 +178,18 @@
 
        
     </script>
+
+    <script>
+        const searchInput = document.querySelector("#searchInput");
+        const searchButton = document.querySelector("#searchButton");
+
+        searchButton.addEventListener("click", () => {
+            const query = searchInput.value;
+            window.location.href = `Mainpage.aspx?q=${query}`;
+        });
+    </script>
+
+
 
     <footer>
         <div class="container">

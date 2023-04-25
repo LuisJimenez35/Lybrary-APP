@@ -86,7 +86,7 @@
             </form>
         </div>
         <br>
-        <label>IVA: $</label>
+        <label>IVA: </label>
         <label id="lblTotal" runat="server">$</label>
         <hr>
         <button>Pagar</button>
@@ -113,6 +113,5 @@
             </div>
         </div>
     </footer>
-
 </body>
 </html>

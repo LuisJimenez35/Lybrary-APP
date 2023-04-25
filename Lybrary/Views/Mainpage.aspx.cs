@@ -10,6 +10,9 @@ using m = Lybrary.Models;
 using c = Lybrary.Controllers;
 using System.Web.UI.HtmlControls;
 using System.Runtime.Remoting.Messaging;
+using Lybrary.Models;
+using System.Data.SqlClient;
+using Lybrary.DataBaseWebHelper;
 
 namespace Lybrary.Views
 {
@@ -34,7 +37,8 @@ namespace Lybrary.Views
                 repBooks.DataBind();
             }
         }
-        
+
+
 
         //Method login
         protected void btnLogin_ServerClick(object sender, EventArgs e)
@@ -137,8 +141,9 @@ namespace Lybrary.Views
 
         }
 
-        
-    
+       
+
+
     }
 
 }

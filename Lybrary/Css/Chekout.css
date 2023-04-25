@@ -178,4 +178,21 @@ footer {
   .fa-instagram {
     color: #e1306c;
   }
-  
+
+
+.libro {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+    .libro img {
+        max-width: 150px;
+        max-height: 200px;
+        margin-right: 20px;
+    }
+
+    .libro h3, .libro p {
+        margin: 0;
+    }
