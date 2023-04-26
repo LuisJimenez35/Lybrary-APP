@@ -70,7 +70,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Css\Admin.css" />
     <Content Include="Css\StyleSheet1.css" />
     <Content Include="Css\Register.css" />
     <Content Include="Images\71IR+6fRznL.jpg" />
@@ -79,8 +78,6 @@
     <Content Include="Css\Principal.css" />
     <Content Include="Css\Chekout.css" />
     <Content Include="JS\Site.js" />
-    <Content Include="Views\Admin.aspx" />
-    <Content Include="Views\UsersViewPage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Views\Mainpage.aspx" />
     <Content Include="Web.config" />
@@ -103,20 +100,6 @@
     </Compile>
     <Compile Include="Views\Cheakout.aspx.designer.cs">
       <DependentUpon>Cheakout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Admin.aspx.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Admin.aspx.designer.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UsersViewPage.aspx.cs">
-      <DependentUpon>UsersViewPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\UsersViewPage.aspx.designer.cs">
-      <DependentUpon>UsersViewPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>

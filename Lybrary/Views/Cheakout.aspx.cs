@@ -30,6 +30,8 @@ namespace Lybrary
                 LoginResponsePayload session = (LoginResponsePayload)Session["loginInfo"];
 
                 c.Cart bookController = new c.Cart();
+
+
                 repMyShoppingCart.DataSource = bookController.GetMyShoppingCart(session);
                 repMyShoppingCart.DataBind();
 
@@ -50,7 +52,9 @@ namespace Lybrary
             }
 
             // Muestra el total en la etiqueta lblTotal
+
             lblTotal.InnerText = total.ToString("N2");
+
         }
         protected void btnPagar_Click(object sender, EventArgs e)
         {

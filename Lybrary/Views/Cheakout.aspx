@@ -40,6 +40,12 @@
                     <h3>Titulo: <%# Eval("Title")%></h3>
                     <p>Precio:
                         <asp:Label runat="server" ID="lblPrice" Text='<%# Eval("price")%>'></asp:Label></p>
+
+                
+                <div class="libro">
+                    <img src="<%# Eval("Photo")%>" alt="Portada libro 1">
+                    <h3>Titulo: <%# Eval("Title")%></h3>
+                    <p>Precio: <asp:Label runat="server" ID="lblPrice" Text='<%# Eval("price")%>'></asp:Label></p>
                     <br>
                     <button type="button" class="btn btn-outline-danger">Eliminar</button>
                     <br>
@@ -66,6 +72,7 @@
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Estado(Provincia)</label>
                     <input type="text" class="form-control" id="inputPassword4" runat="server">
+
                 </div>
                 <div class="col-12">
                     <label for="inputAddress" class="form-label">Direccion</label>
@@ -95,6 +102,7 @@
             </form>
         </div>
         <br>
+
     </section>
     <br>
     <footer>
