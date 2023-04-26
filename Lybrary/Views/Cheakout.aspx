@@ -28,68 +28,73 @@
             </nav>
         </div>
     </div>
-
     <section class="libreria">
         <h2>Checkout</h2>
         <asp:Repeater runat="server" ID="repMyShoppingCart">
             <HeaderTemplate>
             </HeaderTemplate>
             <ItemTemplate>
+
                 <div class="libro">
                     <img src="<%# Eval("Photo")%>" alt="Portada libro 1">
                     <h3>Titulo: <%# Eval("Title")%></h3>
-                    <p>Precio: <%# Eval("price")%></p>
+                    <p>Precio:
+                        <asp:Label runat="server" ID="lblPrice" Text='<%# Eval("price")%>'></asp:Label></p>
+                    <br>
+                    <button type="button" class="btn btn-outline-danger">Eliminar</button>
+                    <br>
                 </div>
             </ItemTemplate>
             <FooterTemplate>
             </FooterTemplate>
         </asp:Repeater>
-        <hr>
         <div class="selectinput">
             <form class="row g-3">
+                <label id="lblNotificacion" runat="server"></label>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="Name">
+                    <input type="text" class="form-control" id="Name" runat="server">
                 </div>
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="Email">
+                    <input type="email" class="form-control" id="Email" runat="server">
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Pais</label>
-                    <input type="text" class="form-control" id="Pais">
+                    <input type="text" class="form-control" id="Pais" runat="server">
                 </div>
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Estado(Provincia)</label>
-                    <input type="password" class="form-control" id="inputPassword4">
+                    <input type="text" class="form-control" id="inputPassword4" runat="server">
                 </div>
                 <div class="col-12">
                     <label for="inputAddress" class="form-label">Direccion</label>
-                    <input type="text" class="form-control" id="Direccion">
+                    <input type="text" class="form-control" id="Direccion" runat="server">
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Codigo Postal</label>
-                    <input type="number" class="form-control" id="Codepostal">
+                    <input type="number" class="form-control" id="Codepostal" runat="server">
                 </div>
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Numero de Tarjeta</label>
-                    <input type="number" class="form-control" id="numcard">
+                    <input type="number" class="form-control" id="numcard" runat="server">
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Fecha expiracion</label>
-                    <input type="date" class="form-control" id="fech">
+                    <input type="date" class="form-control" id="fech" runat="server">
                 </div>
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">CVV</label>
-                    <input type="number" class="form-control" id="CVV">
+                    <input type="number" class="form-control" id="CVV" runat="server">
                 </div>
+                <br>
+                <label runat="server">IVA: $ </label>
+                <label id="lblTotal" runat="server"></label>
+                <hr>
+                <button runat="server" onclick="btnPagar_Click">Pagar</button>
             </form>
         </div>
         <br>
-        <label>IVA: </label>
-        <label id="lblTotal" runat="server">$</label>
-        <hr>
-        <button>Pagar</button>
     </section>
     <br>
     <footer>
