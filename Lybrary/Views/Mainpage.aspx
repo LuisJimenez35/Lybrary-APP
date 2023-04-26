@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="~/Views/Mainpage.aspx.cs" Inherits="Lybrary.Views.WebForm3" %>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,9 +73,10 @@
                       <div class="libro">
                         <img src="<%# Eval("Photo")%>" alt="Portada <%# Eval("ISBN")%>">
                         <h3 id="h3Title"><%# Eval("Title")%></h3>
-                        <hr><hr>
+                        <hr>
                         <h3 id="h3Author">Author:<%# Eval("Author")%></h3>
                         <p id="pPrice">Price:$<%# Eval("Price")%> </p>
+                        <input type="checkbox" class="favorite" data-isbn='<%# Eval("ISBN")%>' />
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_<%# Eval("ISBN")%>" data-isbn='<%# Eval("ISBN")%>'>Information</button>
                       </div>
                     </div>
@@ -155,9 +155,37 @@
             </div>
         </div>
         
-        
+        <!-- Modal favoriyes-->
+        <div class="modal fade" id="favoritesModal" tabindex="-1" aria-labelledby="favoritesModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="favoritesModalLabel">My Favorites</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <ul id="favoritesList"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
     </form>
 
+    <style>
+  #favoritesList li {
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    vertical-align: top;
+    width: 30%;
+  }
+  
+  #favoritesList li img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
 
     <script>
 
@@ -167,20 +195,20 @@
         const closeBtn = document.querySelector(".close");
 
         loginBtn.addEventListener("click", () => {
-        loginModal.style.display = "block";
+            loginModal.style.display = "block";
         });
 
         closeBtn.addEventListener("click", () => {
-        loginModal.style.display = "none";
+            loginModal.style.display = "none";
         });
 
         window.addEventListener("click", (event) => {
-        if (event.target === loginModal) {
-            loginModal.style.display = "none";
-        }
+            if (event.target === loginModal) {
+                loginModal.style.display = "none";
+            }
         });
 
-       
+
     </script>
 
     <script>
@@ -192,8 +220,35 @@
             window.location.href = `Mainpage.aspx?q=${query}`;
         });
     </script>
+ 
+    <script>
+        // Add event listener to "My favorites" link
+        document.getElementById("LoveBooks").addEventListener("click", function (event) {
+            event.preventDefault();
 
+            // Get all checked favorite checkboxes
+            var favorites = document.querySelectorAll(".favorite:checked");
 
+            // Create favorites list
+            var favoritesList = "";
+            favorites.forEach(function (favorite) {
+                favoritesList += "<li>" +
+                    "<img src='" + favorite.parentNode.querySelector("img").getAttribute("src") + "' alt='Portada " + favorite.dataset.isbn + "' />" +
+                    "<h4>" + favorite.parentNode.querySelector("#h3Title").innerText + "</h4>" +
+                    "<p>Author: " + favorite.parentNode.querySelector("#h3Author").innerText + "</p>" +
+                    "<p>ISBN: " + favorite.dataset.isbn + "</p>" +
+                    "</li>";
+            });
+
+            // Set favorites list in modal
+            var modalBody = document.getElementById("favoritesList");
+            modalBody.innerHTML = favoritesList;
+
+            // Show favorites modal
+            var favoritesModal = new bootstrap.Modal(document.getElementById("favoritesModal"));
+            favoritesModal.show();
+        });
+    </script>
 
     <footer>
         <div class="container">
