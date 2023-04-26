@@ -35,12 +35,6 @@
             </HeaderTemplate>
             <ItemTemplate>
 
-                <div class="libro">
-                    <img src="<%# Eval("Photo")%>" alt="Portada libro 1">
-                    <h3>Titulo: <%# Eval("Title")%></h3>
-                    <p>Precio:
-                        <asp:Label runat="server" ID="lblPrice" Text='<%# Eval("price")%>'></asp:Label></p>
-
                 
                 <div class="libro">
                     <img src="<%# Eval("Photo")%>" alt="Portada libro 1">
