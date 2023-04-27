@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="../Css/Principal.css"
     <script src="../js/site.js"></script>
     <title>Libreria Internacional</title>
+
 </head>
+    
 <body>
     <form id="Form1" runat="server">
         <div class="container">
@@ -56,7 +58,7 @@
         <br>
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Titulo o ISBN: ">
-            <button type="button" id="searchButton"> <i class="fa fa-search"></i>Buscar</button>
+            <button type="button" id="searchButton"> <i class="fa fa-search"></i>Search Book</button>
         </div>
         <br>
         <br>
@@ -70,18 +72,17 @@
                 </HeaderTemplate>
                 <ItemTemplate>
                     <div class="libros">
-                      <div class="libro">
-                        <img src="<%# Eval("Photo")%>" alt="Portada <%# Eval("ISBN")%>">
-                        <h3 id="h3Title"><%# Eval("Title")%></h3>
-                        <hr>
-                        <h3 id="h3Author">Author:<%# Eval("Author")%></h3>
-                        <p id="pPrice">Price:$<%# Eval("Price")%> </p>
-                        <input type="checkbox" class="favorite" data-isbn='<%# Eval("ISBN")%>' />
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_<%# Eval("ISBN")%>" data-isbn='<%# Eval("ISBN")%>'>Information</button>
+                        <div class="libro">
+                          <img src="<%# Eval("Photo")%>" alt="Portada <%# Eval("ISBN")%>">
+                          <h3 id="h3Title"><%# Eval("Title")%></h3>
+                          <hr>
+                          <h3 id="h3Author">Author:<%# Eval("Author")%></h3>
+                          <p id="pPrice">Price:$<%# Eval("Price")%> </p>
+                          <input type="checkbox" class="favorite" data-isbn='<%# Eval("ISBN")%>' />
+                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_<%# Eval("ISBN")%>" data-isbn='<%# Eval("ISBN")%>'>Information</button>
+                        </div>
                       </div>
-                    </div>
             
-
                 
                 <!-- Modal de informacion libros-->
                 <div class="modal fade" id="exampleModal_<%# Eval("ISBN")%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -111,6 +112,8 @@
                     </div>
                   </div>
                 </div>
+
+
 
                 </ItemTemplate>
                 <FooterTemplate>
@@ -169,23 +172,50 @@
             </div>
           </div>
         </div>
+
+
+        <!-- Modal search-->
+            <div class="modal fade" id="bookModal" tabindex="-1" role="dialog" aria-labelledby="bookModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="bookModalLabel">Book Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div id="bookDetails">
+                      <!-- Aquí se mostrarán los detalles del libro -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
     </form>
 
     <style>
-  #favoritesList li {
-    display: inline-block;
-    text-align: center;
-    margin-right: 10px;
-    margin-bottom: 20px;
-    vertical-align: top;
-    width: 30%;
-  }
-  
-  #favoritesList li img {
-    max-width: 100%;
-    height: auto;
-  }
-</style>
+        #favoritesList li {
+            display: inline-block;
+            text-align: center;
+            margin-right: 10px;
+            margin-bottom: 20px;
+            vertical-align: top;
+            width: 30%;
+        }
+
+            #favoritesList li img {
+                max-width: 100%;
+                height: auto;
+            }
+
+
+
+    </style>
+
+    
+
 
     <script>
 
@@ -221,6 +251,8 @@
         });
     </script>
  
+
+
     <script>
         // Add event listener to "My favorites" link
         document.getElementById("LoveBooks").addEventListener("click", function (event) {
@@ -235,7 +267,7 @@
                 favoritesList += "<li>" +
                     "<img src='" + favorite.parentNode.querySelector("img").getAttribute("src") + "' alt='Portada " + favorite.dataset.isbn + "' />" +
                     "<h4>" + favorite.parentNode.querySelector("#h3Title").innerText + "</h4>" +
-                    "<p>Author: " + favorite.parentNode.querySelector("#h3Author").innerText + "</p>" +
+                    "<p> " + favorite.parentNode.querySelector("#h3Author").innerText + "</p>" +
                     "<p>ISBN: " + favorite.dataset.isbn + "</p>" +
                     "</li>";
             });
