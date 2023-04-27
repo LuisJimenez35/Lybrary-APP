@@ -22,7 +22,7 @@ namespace Lybrary.DataBaseWebHelper
             return this.Fill("[dbo].[spGetBooks]", null);
         }
 
-        
+
 
 
         //Method to take up an specific book base in ISBN
@@ -37,7 +37,7 @@ namespace Lybrary.DataBaseWebHelper
         }
 
         //Method to save your item in a shopping cart
-       public void saveToShoppinCart(m.Cart book)
+        public void saveToShoppinCart(m.Cart book)
         {
             List<SqlParameter> param = new List<SqlParameter>()
             {
@@ -124,6 +124,8 @@ namespace Lybrary.DataBaseWebHelper
             return this.Fill("[dbo].[spGetMyShoppingCart]", param);
         }
 
+
+        //Method for delete all books the Cart
         public void ClearShoppingCart(string email)
         {
             List<SqlParameter> param = new List<SqlParameter>()
@@ -135,5 +137,16 @@ namespace Lybrary.DataBaseWebHelper
         }
 
 
+        //Method for delete specific book the Cart
+        public void Delete_Book_Cart(string email, string isbn)
+        {
+            List<SqlParameter> param = new List<SqlParameter>()
+            {
+                new SqlParameter("@BuyerEmail", email),
+                new SqlParameter("@BookISBN", isbn),
+            };
+
+            this.ExecuteQuery("[dbo].[spDeleteBookFromShoppingCart]", param);
+        }
     }
 }

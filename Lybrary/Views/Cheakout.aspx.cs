@@ -16,6 +16,7 @@ using static System.Collections.Specialized.BitVector32;
 using Lybrary.Controllers;
 using Lybrary.Models;
 using Lybrary.DataBaseWebHelper;
+using System.Web.UI.HtmlControls;
 
 namespace Lybrary
 {
@@ -113,5 +114,25 @@ namespace Lybrary
                 lblNotificacion.InnerText = "No se pudo enviar el correo. Error: " + ex.Message;
             }
         }
+
+        protected void btn_delete_Book(object sender, EventArgs e)
+        {
+            var btn = (HtmlButton)sender;
+            var isbn = btn.Attributes["dataisbn"];
+
+
+            LoginResponsePayload session = (LoginResponsePayload)Session["loginInfo"];
+            string email = session.email;
+
+
+            // Eliminar el libro del carrito de compras del usuario
+            DataBase db = new DataBase();
+            db.Delete_Book_Cart(email, isbn);
+
+            // Actualizar el repeater
+            Response.Redirect("../Views/Cheakout.aspx?session==true");
+        }
+
+
     }
 }

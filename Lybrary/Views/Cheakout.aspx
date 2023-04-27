@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../Css/Chekout.css">
 </head>
 <body>
-    
+
     <div class="container">
         <div class="logo">
             <a href="mu.html">
@@ -36,13 +36,16 @@
             </HeaderTemplate>
             <ItemTemplate>
 
-                
+
                 <div class="libro">
                     <img src="<%# Eval("Photo")%>" alt="Portada libro 1">
                     <h3>Titulo: <%# Eval("Title")%></h3>
-                    <p>Precio: <asp:Label runat="server" ID="lblPrice" Text='<%# Eval("price")%>'></asp:Label></p>
+                    <p>
+                        Precio:
+                            <asp:Label runat="server" ID="lblPrice" Text='<%# Eval("price")%>'></asp:Label>
+                    </p>
                     <br>
-                    <button type="button" class="btn btn-outline-danger">Eliminar</button>
+                    <button type="button" runat="server" onserverclick="btn_delete_Book" class="btn btn-outline-danger" dataisbn='<%# Eval("ISBN") %>'>Delete Book</button>
                     <br>
                 </div>
             </ItemTemplate>
@@ -67,7 +70,6 @@
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Estado(Provincia)</label>
                     <input type="text" class="form-control" id="inputPassword4" runat="server">
-
                 </div>
                 <div class="col-12">
                     <label for="inputAddress" class="form-label">Direccion</label>
@@ -97,7 +99,6 @@
             </form>
         </div>
         <br>
-
     </section>
     <br>
     <footer>
