@@ -12,6 +12,10 @@ using System.EnterpriseServices;
 using System.Net.Mail;
 using System.Xml.Linq;
 using System.Net;
+using static System.Collections.Specialized.BitVector32;
+using Lybrary.Controllers;
+using Lybrary.Models;
+using Lybrary.DataBaseWebHelper;
 
 namespace Lybrary
 {
@@ -56,6 +60,8 @@ namespace Lybrary
             lblTotal.InnerText = total.ToString("N2");
 
         }
+
+
         protected void btnPagar_Click(object sender, EventArgs e)
         {
             try
@@ -91,8 +97,15 @@ namespace Lybrary
                 // Enviar el correo electrónico
                 smtpClient.Send(message);
 
+                // Limpiar el carrito de compras del usuario actual
+                DataBase db = new DataBase();
+                db.ClearShoppingCart(email);
+
                 // Mostrar una notificación si el correo se envió correctamente
                 lblNotificacion.InnerText = "El correo se envió correctamente.";
+
+                Response.Redirect("../Views/Mainpage.aspx?session==true");
+
             }
             catch (Exception ex)
             {
@@ -100,7 +113,5 @@ namespace Lybrary
                 lblNotificacion.InnerText = "No se pudo enviar el correo. Error: " + ex.Message;
             }
         }
-
-
     }
 }

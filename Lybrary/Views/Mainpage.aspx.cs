@@ -22,24 +22,33 @@ namespace Lybrary.Views
         //Load all books saved in database
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            string session = Request.QueryString["session"];
+            if (session == "true")
             {
-                IsLogOut();
-                string session = Request.QueryString["session"];
-
-                if (session == "false")
+                IsLogged();
+            }
+            else
+            {
+                if (!IsPostBack)
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showModal('Login','You must login to access this page')", true);
+                    IsLogOut();
+
+
+                    if (session == "false")
+                    {
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showModal('Login','You must login to access this page')", true);
+                    }
+
                 }
 
-                c.Book bookController = new c.Book();
-
-                repBooks.DataSource = bookController.GetBooks();
-                repBooks.DataBind();
             }
+            c.Book bookController = new c.Book();
+
+            repBooks.DataSource = bookController.GetBooks();
+            repBooks.DataBind();
         }
 
-        
+
 
 
         //Method login
@@ -67,7 +76,7 @@ namespace Lybrary.Views
 
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showModal('Login','" + msg + "')", true);
         }
-       
+
         //Method to verify if the person is logged
         private void IsLogged()
         {
@@ -112,12 +121,7 @@ namespace Lybrary.Views
             IsLogOut();
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showModal('Login','Thank you for visiting International Libery.com')", true);
         }
-        
-        //Method to inmediatly buy
-        protected void btnBuy_ServerClick(object sender, EventArgs e)
-        {
-            
-        }
+
 
         //Method to save books in a shopping cart
         protected void btnSave_ServerClick(object sender, EventArgs e)
@@ -125,7 +129,7 @@ namespace Lybrary.Views
             var button = (HtmlButton)sender;
             var ISBN = button.Attributes["dataId"];
             findBook(ISBN);
-            
+
             List<m.Book> book = (List<m.Book>)Session["Cart"];
             c.Cart CartController = new c.Cart();
             m.Cart Cart = new m.Cart()
@@ -143,7 +147,7 @@ namespace Lybrary.Views
 
         }
 
-       
+
 
 
     }

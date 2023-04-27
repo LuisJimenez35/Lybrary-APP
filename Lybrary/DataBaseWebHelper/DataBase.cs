@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Web;
 using m = Lybrary.Models;
 
@@ -20,6 +21,9 @@ namespace Lybrary.DataBaseWebHelper
         {
             return this.Fill("[dbo].[spGetBooks]", null);
         }
+
+        
+
 
         //Method to take up an specific book base in ISBN
         public DataTable GetBook(string ISBN)
@@ -119,5 +123,17 @@ namespace Lybrary.DataBaseWebHelper
 
             return this.Fill("[dbo].[spGetMyShoppingCart]", param);
         }
+
+        public void ClearShoppingCart(string email)
+        {
+            List<SqlParameter> param = new List<SqlParameter>()
+            {
+                new SqlParameter("@BuyerEmail", email),
+            };
+
+            this.ExecuteQuery("[dbo].[spClearShoppingCart]", param);
+        }
+
+
     }
 }
