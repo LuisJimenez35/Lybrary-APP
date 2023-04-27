@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../Css/Chekout.css">
 </head>
 <body>
+    
     <div class="container">
         <div class="logo">
             <a href="mu.html">
@@ -49,7 +50,7 @@
             </FooterTemplate>
         </asp:Repeater>
         <div class="selectinput">
-            <form class="row g-3">
+            <form class="row g-3" runat="server">
                 <label id="lblNotificacion" runat="server"></label>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Nombre</label>
@@ -92,7 +93,7 @@
                 <label runat="server">IVA: $ </label>
                 <label id="lblTotal" runat="server"></label>
                 <hr>
-                <button runat="server" onclick="btnPagar_Click">Pagar</button>
+                <button runat="server" onserverclick="btnPagar_Click">Pagar</button>
             </form>
         </div>
         <br>
