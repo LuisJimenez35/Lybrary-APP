@@ -9,43 +9,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../Css/Principal.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script src="../js/site.js"></script>
     <script src="../Scripts/jquery-3.6.4.min.js"></script>
+
     <title>Libreria Internacional</title>
-    <script>
-        $(document).ready(function () {
-            // Maneja el evento de clic en el botón de búsqueda
-            $('#staticBackdrop').on('click', '.btn-outline-success', function () {
-                // Obtiene el término de búsqueda del input
-                var searchTerm = $('#searchInput').val().toLowerCase();
-                var found = false;
-                <a href="https://localhost:44372/Views/">https://localhost:44372/Views/</a>
-                // Recorre cada libro
-                $('.libro').each(function () {
-                    // Obtiene el título y el ISBN del libro actual
-                    var title = $(this).find('#h3Title').text().toLowerCase();
-                    var isbn = $(this).find('.favorite').data('isbn').toLowerCase();
 
-                    // Verifica si el término de búsqueda coincide con el título o el ISBN
-                    if (title.indexOf(searchTerm) !== -1 || isbn.indexOf(searchTerm) !== -1) {
-                        // Muestra la información del libro
-                        $('#searchResults').html($(this).clone());
-                        found = true;
-                        return false; // Sale del bucle each
-                    }
-                });
-
-                // Si no se encontraron resultados, muestra un mensaje de error
-                if (!found) {
-                    $('#searchResults').html('');
-                    $('#searchError').show();
-                } else {
-                    $('#searchError').hide();
-                }
-            });
-        });
-    </script>
 
 </head>
 
@@ -101,35 +70,6 @@
         </div>
         <br>
         <br>
-
-    
-
-        <!-- Modal Search-->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Buscar Libros</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                            <input class="form-control me-2" type="search" placeholder="Buscar por título o ISBN" aria-label="Search" id="searchInput" onkeyup="searchBook()">
-                            <button class="btn btn-outline-success" type="submit">Buscar</button>
-
-                        <div id="searchError" style="display: none;">
-                            <p>No se encontraron libros que coincidan con la búsqueda.</p>
-                        </div>
-                        <div id="searchResults">
-                            <!-- Aquí se mostrarán los resultados de la búsqueda -->
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
 
         <div class="tilemain">
@@ -189,6 +129,63 @@
         </div>
 
 
+        <script>
+            function searchBook() {
+                // Obtiene el término de búsqueda del input
+                var searchTerm = $('#searchInput').val().toLowerCase();
+                var found = false;
+
+                // Recorre cada libro
+                $('.libro').each(function () {
+                    // Obtiene el título y el ISBN del libro actual
+                    var title = $(this).find('h3#h3Title').text().toLowerCase().trim();
+                    var isbn = $(this).find('.favorite').data('isbn').toLowerCase().trim();
+
+                    // Verifica si el término de búsqueda coincide con el título o el ISBN
+                    if (title.includes(searchTerm) || isbn.includes(searchTerm)) {
+                        // Muestra la información del libro
+                        $('#searchResults').append($(this).clone());
+                        found = true;
+                    }
+                });
+
+                // Si no se encontraron resultados, muestra un mensaje de error
+                if (!found) {
+                    $('#searchResults').html('');
+                    $('#searchError').show();
+                } else {
+                    $('#searchError').hide();
+                }
+            }
+        </script>
+
+        <!-- Modal Search-->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Buscar Libros</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input class="form-control me-2" type="search" placeholder="Buscar por título o ISBN" aria-label="Search" id="searchInput">
+                        <button class="btn btn-outline-success" type="button" onclick="searchBook()">Buscar</button>
+
+
+
+                        <div id="searchError" style="display: none;">
+                            <p>No se encontraron libros que coincidan con la búsqueda.</p>
+                        </div>
+                        <div id="searchResults">
+                            <!-- Aquí se mostrarán los resultados de la búsqueda -->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 

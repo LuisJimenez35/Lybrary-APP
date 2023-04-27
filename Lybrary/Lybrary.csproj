@@ -74,6 +74,7 @@
     <Content Include="Images\HPyLPiedra.jpg" />
     <Content Include="Css\Principal.css" />
     <Content Include="Css\Chekout.css" />
+    <Content Include="JS\Search.js" />
     <Content Include="JS\Site.js" />
     <None Include="Scripts\jquery-3.6.4.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.4.js" />
