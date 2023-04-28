@@ -317,7 +317,6 @@
                     "<img src='" + favorite.parentNode.querySelector("img").getAttribute("src") + "' alt='Portada " + favorite.dataset.isbn + "' />" +
                     "<h4>" + favorite.parentNode.querySelector("#h3Title").innerText + "</h4>" +
                     "<p> " + favorite.parentNode.querySelector("#h3Author").innerText + "</p>" +
-                    "<p>ISBN: " + favorite.dataset.isbn + "</p>" +
                     "</li>";
             });
 
