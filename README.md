@@ -1,4 +1,4 @@
-# 🌆Library APP
+# 📚Library APP
 ## 💬Introduction:
 We request the implementation of a web tool for the company Librería Internacional. As a boom in e-commerce web portals where customers can buy online, we want a site where you can increase sales and create a strong competition in digital sales (Simulation).
 
