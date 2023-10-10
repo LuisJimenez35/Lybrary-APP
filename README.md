@@ -1,12 +1,6 @@
 # 🌆Library APP
-We request the implementation of a web tool for the company Librería Internacional. As a boom in e-commerce web portals where customers can buy online, we want a site where you can increase sales and create a strong competition in digital sales (Simulation).
-
-## ⚠️Situation:
-
 ## 💬Introduction:
-
-## 📑Description
-
+We request the implementation of a web tool for the company Librería Internacional. As a boom in e-commerce web portals where customers can buy online, we want a site where you can increase sales and create a strong competition in digital sales (Simulation).
 ## 📝Requirements for the Library
 - Allow to consult the books available for purchase: ISBN, Photo, Title, Author, Date of publication of the book, Price.
 
