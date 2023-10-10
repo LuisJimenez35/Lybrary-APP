@@ -13,6 +13,7 @@ We request the implementation of a web tool for the company Librería Internacio
 - An option to search for a book by ISBN or by Title.
 
 - An option to buy a book or several books in the same invoice, where the information is entered:
+```
 Name
 Email
 Country
@@ -22,7 +23,7 @@ Zip/Postal Code
 Card Number
 Expiration Date
 Security Code
-
+```
 - A SQL Server database must be used.
 
 ## 🚨Additional requirement
